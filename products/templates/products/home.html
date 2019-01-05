@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container" style="margin-top:30px; margin-bottom:-20px;">
+<div class="section">
+    <h4 style="text-transform:uppercase; letter-spacing: 0.5px; font-weight:700; font-size:13px;">Latest Gameshots</h4>
+</div>
+    </div>
+
+
+<!--
+<div class="container">
+<div class="row">
+    <div class="col-md-3">
+        {% for product in products.all %}
+        <div class="card-group">
+              <div class="card mb-4 shadow-sm">
+                <img class="card-img-top" src="{{ product.image.url}}" />
+                <div class="card-body">
+                  <p class="card-text">{{ product.title }}</p>
+                    <small class="text-muted">{{ product.hunter }}</small>
+                </div>
+              </div>
+            </div>
+        {% endfor %}
+            </div>
+
+</div>
+</div>
+-->
+
+<div class="album py-5 ">
+    <div class="container">
+        <div class="row">
+            {% for product in products.all %}
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm" onclick="window.location='{% url 'detail' product.id %}';">
+                    <img class="card-img-top" src="{{ product.url }}">
+                    <div class="card-body">
+                        <p class="text">
+                        {{ product.title }}
+                        </p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <small class="text-muted">{{ product.hunter }}</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Привет! Тебя зовут {{ user.username}}!</h1>
+<br>
+<span>Твой имейл:</span>
+<b>{{ user.email}}</b>
+<br>
+<span>Дата регистрации:</span> <b>{{ user.date_joined}}</b>
+
+
+<div class="album py-5 ">
+    <div class="container">
+        <div class="row">
+            {% for Product in user_posts %}
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <img class="card-img-top" src="{{ Product.url }}">
+                    <div class="card-body">
+                        <p class="text">
+                        {{ Product.title }}
+                        </p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <small class="text-muted">{{ Product.hunter }}</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
